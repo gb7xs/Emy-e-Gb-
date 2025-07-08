@@ -10,6 +10,56 @@
 <body>
   <div class="container">
     <h1 class="titulo">Emy e gb</h1>
+    <style>
+  .coracao {
+    position: fixed;
+    top: -50px;
+    color: red;
+    font-size: 24px;
+    animation: cair linear infinite;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  @keyframes cair {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  function criarCoracao() {
+    const coracao = document.createElement("div");
+    coracao.classList.add("coracao");
+    coracao.innerHTML = "❤️";
+
+    // Posição horizontal aleatória
+    coracao.style.left = Math.random() * 100 + "vw";
+
+    // Tamanho aleatório
+    const tamanho = Math.random() * 20 + 20;
+    coracao.style.fontSize = tamanho + "px";
+
+    // Duração aleatória
+    const duracao = Math.random() * 3 + 2;
+    coracao.style.animationDuration = duracao + "s";
+
+    document.body.appendChild(coracao);
+
+    // Remove depois de um tempo para não pesar a página
+    setTimeout(() => {
+      coracao.remove();
+    }, duracao * 1000);
+  }
+
+  setInterval(criarCoracao, 300); // A cada 300ms cria um novo
+</script>
     <p class="subtitulo">olaa feliz 4 meses nossoo amor, saiba que eu te amo muito e a cada dia que passa me apaixono mais por vc, que faz qualquer momento ser muito especial
     para mim eu te muitaooooooo</p>
     <div style="text-align: center; margin-top: 30px;">
