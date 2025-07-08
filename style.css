@@ -43,6 +43,23 @@ body {
   pointer-events: none; /* permite clicar em elementos atrás */
 
 }
+  .hearts-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.heart {
+  position: absolute;
+  font-size: 30px;
+  animation: float 10s linear infinite;
+  opacity: 0.7;
+}
+
 
 @keyframes float {
   0% {
