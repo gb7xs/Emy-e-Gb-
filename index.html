@@ -14,6 +14,67 @@
     para mim eu te amoooooooo</p>
     <div style="text-align: center; margin-top: 30px;">
   <img src="fotoemy12.webp" alt="Foto 1" style="width: 300px; margin: 10px; border-radius: 10px;">
+      <div style="text-align:center; color:white; font-family:sans-serif;">
+  <h2>Compartilhando momentos há</h2>
+  <div id="contador" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px;"></div>
+  <p style="margin-top: 20px;">Desde 10 de março de 2024</p>
+</div>
+
+<script>
+  const dataInicio = new Date("2024-03-10T00:00:00");
+
+  function atualizarContador() {
+    const agora = new Date();
+    let anos = agora.getFullYear() - dataInicio.getFullYear();
+    let meses = agora.getMonth() - dataInicio.getMonth();
+    let dias = agora.getDate() - dataInicio.getDate();
+    let horas = agora.getHours() - dataInicio.getHours();
+    let minutos = agora.getMinutes() - dataInicio.getMinutes();
+    let segundos = agora.getSeconds() - dataInicio.getSeconds();
+
+    if (segundos < 0) {
+      segundos += 60;
+      minutos--;
+    }
+    if (minutos < 0) {
+      minutos += 60;
+      horas--;
+    }
+    if (horas < 0) {
+      horas += 24;
+      dias--;
+    }
+    if (dias < 0) {
+      meses--;
+      const ultimoMes = new Date(agora.getFullYear(), agora.getMonth(), 0);
+      dias += ultimoMes.getDate();
+    }
+    if (meses < 0) {
+      meses += 12;
+      anos--;
+    }
+
+    const itens = [
+      { label: "anos", valor: anos },
+      { label: "meses", valor: meses },
+      { label: "dias", valor: dias },
+      { label: "horas", valor: horas },
+      { label: "minutos", valor: minutos },
+      { label: "segundos", valor: segundos }
+    ];
+
+    document.getElementById("contador").innerHTML = itens.map(item => `
+      <div style="background:#111; padding:15px 20px; border-radius:10px;">
+        <div style="font-size:24px;"><strong>${String(item.valor).padStart(2, '0')}</strong></div>
+        <div style="font-size:14px;">${item.label}</div>
+      </div>
+    `).join("");
+  }
+
+  setInterval(atualizarContador, 1000);
+  atualizarContador();
+</script>
+
     <p class="mensagem">Espero que goste amor sei que e simples mas e de coraçao e quase fiquei doido fazendo ;)</p>
   </div>
 
