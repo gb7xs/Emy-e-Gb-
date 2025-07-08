@@ -14,3 +14,17 @@ function criarCoracao() {
 }
 
 setInterval(criarCoracao, 400);
+
+let slideIndex = 0;
+
+function mudarSlide(direction) {
+  const slider = document.getElementById('slider');
+  const totalSlides = slider.children.length;
+  slideIndex += direction;
+
+  if (slideIndex < 0) slideIndex = totalSlides - 1;
+  if (slideIndex >= totalSlides) slideIndex = 0;
+
+  const offset = slideIndex * slider.clientWidth;
+  slider.style.transform = `translateX(-${offset}px)`;
+}
