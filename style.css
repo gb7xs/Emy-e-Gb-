@@ -19,7 +19,7 @@ body {
   margin: 50px auto;
   overflow: hidden;
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255, 255, 190, 0.2);
 }
 
 .slider {
